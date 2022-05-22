@@ -1,4 +1,4 @@
 
-"{{specialCharacter}}bt propose <video-id>" to propose a Youtube blind test.
-"{{specialCharacter}}bt guess <your-guess>" to try guessing a video name.
-"{{specialCharacter}}bt result" to determine the winner.
+"{{specialCharacter}}bt/b propose/p <video-id>" to propose a Youtube blind test.
+"{{specialCharacter}}bt/b guess/g <your-guess>" to try guessing a video name.
+"{{specialCharacter}}bt/b result/r" to determine the winner.

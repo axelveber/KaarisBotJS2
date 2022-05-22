@@ -3,18 +3,20 @@
 const CommandService = require('../Utils/CommandService');
 
 class BlindTest {
-    constructor(videoName) {
+    constructor(videoName, videoId) {
         this.commandService = new CommandService();
         this.videoName = videoName;
         this.responses = [];
+        this.videoId = videoId;
     }
 
-    addResponse(authorId, guess) {
+    addResponse(authorId, authorName, guess) {
         var date = new Date();
         this.responses.push({
-            authorId:  authorId,
-            guess:     guess,
-            date:      date.getTime()
+            authorId:   authorId,
+            authorName: authorName,
+            guess:      guess,
+            date:       date.getTime()
         });
     }
 
@@ -26,12 +28,16 @@ class BlindTest {
 
         // We compute all distances
         var scores = [];
+        console.log("### Blind test summary : ###")
         this.responses.forEach(response => {
+            let distance = this.commandService.levenshteinDistance(response.guess, this.videoName) 
             scores.push({
                 authorId: response.authorId,
-                distance: this.commandService.levenshteinDistance(response.guess, this.videoName),
+                authorName: response.authorName,
+                distance: distance,
                 date:     response.date
             })
+            console.log(response.authorName + '("' + response.guess + '") : ' + distance)
         });
 
         // Then we get the response with the minimal distance (the date will break ties)
@@ -42,6 +48,7 @@ class BlindTest {
                 winner = score;
             }
         });
+        console.log(winner.authorName + ' wins.')
 
         // We can now return the winner id
         return winner.authorId;

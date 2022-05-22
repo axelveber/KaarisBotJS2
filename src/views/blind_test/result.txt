@@ -1,2 +1,2 @@
 {{#winner}}<@{{winner}}> win this one !{{/winner}}{{^winner}}No submitions, no winner !{{/winner}}
-The video was **{{videoName}}** !
+The video was **{{videoName}}** (https://www.youtube.com/watch?v={{videoId}}) !

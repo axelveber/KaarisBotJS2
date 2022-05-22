@@ -4,17 +4,16 @@
   "description": "Bot for Discordapp",
   "main": "bot.js",
   "dependencies": {
-    "bufferutil": "^3.0.2",
     "discord.js": "^11.1.0",
     "erlpack": "^0.1.0",
     "eyes": "^0.1.8",
     "ffmpeg-binaries": "^3.2.2-3",
     "libsodium-wrappers": "^0.5.2",
     "mu2": "^0.5.21",
-    "node-opus": "^0.2.6",
+    "node-opus": "^0.3.3",
     "uws": "^8.14.1",
     "xml2js": "^0.4.17",
-    "ytdl-core": "^0.16.2"
+    "ytdl-core": "^4.11.0"
   },
   "devDependencies": {},
   "scripts": {
