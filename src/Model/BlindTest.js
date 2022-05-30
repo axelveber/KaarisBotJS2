@@ -1,10 +1,13 @@
 "use strict";
 
 const CommandService = require('../Utils/CommandService');
+const JaccardComparator = require('../Utils/StringComparator/JaccardComparator');
+const LevenshteinComparator = require('../Utils/StringComparator/LevenshteinComparator');
 
 class BlindTest {
     constructor(videoName, videoId) {
         this.commandService = new CommandService();
+        this.comparator = new JaccardComparator();
         this.videoName = videoName;
         this.responses = [];
         this.videoId = videoId;
@@ -30,7 +33,7 @@ class BlindTest {
         var scores = [];
         console.log("### Blind test summary : ###")
         this.responses.forEach(response => {
-            let distance = this.commandService.levenshteinDistance(response.guess, this.videoName) 
+            let distance = this.comparator.compare(response.guess, this.videoName) 
             scores.push({
                 authorId: response.authorId,
                 authorName: response.authorName,
