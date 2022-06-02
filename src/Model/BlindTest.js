@@ -37,6 +37,7 @@ class BlindTest {
             scores.push({
                 authorId: response.authorId,
                 authorName: response.authorName,
+                guess: response.guess,
                 distance: distance,
                 date:     response.date
             })
@@ -54,7 +55,10 @@ class BlindTest {
         console.log(winner.authorName + ' wins.')
 
         // We can now return the winner id
-        return winner.authorId;
+        return {
+            authorId: winner.authorId,
+            guess: winner.guess
+        };
     }
 }
 

@@ -119,16 +119,16 @@ class BlindTestListener extends Listener {
     }
 
     result(voiceChannel) {
-        var winnerId = null;
+        var winner = null;
         try {
-            var winnerId = this.currentBlindTest.computeWinner();
+            var winner = this.currentBlindTest.computeWinner();
         } catch (error) {
             if(error !== "no_response") {
                 console.log(error);
             }
         }
         this.renderAndSend(this.textChannel, "blind_test/result.txt", {
-            winner: winnerId,
+            winner: winner,
             videoName: this.currentBlindTest.videoName,
             videoId: this.currentBlindTest.videoId
         });
